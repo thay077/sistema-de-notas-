@@ -8,29 +8,36 @@
 </head>
 <body>
   <header>
-    <h1>Sistema de Notas Interativo 📘</h1>
-    <button id="btnTema">🌙 Modo Escuro</button>
+    <h1>Sistema de Notas Interativo</h1>
+    <button id="theme-toggle">🌙</button>
   </header>
 
-  <section class="form-section">
-    <input type="text" id="nome" placeholder="Nome do aluno">
-    <input type="number" id="nota1" placeholder="Nota 1" min="0" max="10" step="0.1">
-    <input type="number" id="nota2" placeholder="Nota 2" min="0" max="10" step="0.1">
-    <button id="btnAdicionar">Adicionar Aluno</button>
-  </section>
+  <main>
+    <section id="form-section">
+      <input type="text" id="nome" placeholder="Nome do aluno">
+      <input type="number" id="tri1" placeholder="Tri 1" min="0" max="10">
+      <input type="number" id="tri2" placeholder="Tri 2" min="0" max="10">
+      <input type="number" id="tri3" placeholder="Tri 3" min="0" max="10">
+      <button id="adicionar">➕ Adicionar</button>
+    </section>
 
-  <table id="tabela">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Nota 1</th>
-        <th>Nota 2</th>
-        <th>Média</th>
-        <th>Situação</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+    <section id="tabela-section">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Tri 1</th>
+            <th>Tri 2</th>
+            <th>Tri 3</th>
+            <th>Média Final</th>
+            <th>Situação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-body"></tbody>
+      </table>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
