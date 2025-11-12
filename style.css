@@ -1,125 +1,130 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+:root{
+  --baby:#a5d8ff;
+  --baby-strong:#89c2ff;
+  --gold:#d4af37;
+  --gold-dark:#b5892f;
+  --bg:#ffffff;
+  --card:#ffffff;
+  --muted:#666;
+  --red:#ff6b6b;
+  --green:#4caf50;
+  --lilac:#c29cff;
 }
 
+/* Animated diagonal gradient background (suave) */
 body {
-  background-color: #ffffff;
-  color: #333;
-  transition: 0.3s;
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:#222;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg, rgba(165,216,255,0.25) 0%, rgba(255,255,255,0.95) 50%, rgba(212,175,55,0.05) 100%);
+  overflow-x:hidden;
+  transition:background 0.5s ease, color 0.3s ease;
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+@keyframes gradientMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
-header {
-  background-color: #fff;
-  color: goldenrod;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 1.8rem;
-  box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
-  position: relative;
+/* Page frame with golden border and soft shadow (container) */
+.page-frame{
+  width:95%;
+  max-width:1100px;
+  padding:22px;
+  border-radius:18px;
+  border:3px solid var(--gold);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.90));
+  position:relative;
 }
 
-#theme-toggle {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  background: none;
+/* Golden title */
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+header h1{
+  margin:0;
+  color:var(--gold-dark);
+  font-size:1.6rem;
+  letter-spacing:0.6px;
+  text-shadow: 0 0 12px rgba(212,175,55,0.35);
+}
+.controls{display:flex;gap:8px;align-items:center}
+
+/* Buttons */
+.btn{
   border: none;
-  font-size: 1.3rem;
-  cursor: pointer;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
+.btn:active{transform:translateY(1px)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.09)}
 
-main {
-  width: 90%;
-  margin: 2rem auto;
-  max-width: 800px;
-}
+/* color set */
+.btn.baby-blue{background:var(--baby); color:#01304a}
+.btn.primary{background:var(--gold); color:#0b0b0b}
+.btn.red{background:var(--red); color:white}
+.btn.green{background:var(--green); color:white}
+.btn.lilac{background:var(--lilac); color:#2d1a4a}
 
-#form-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
+/* Theme toggle */
+#theme-toggle{background:transparent;padding:6px 8px;border-radius:8px;font-size:18px}
 
-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  flex: 1;
-  min-width: 120px;
-}
+/* Cards */
+.container{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card);border-radius:12px;padding:14px}
+.form-card{display:flex;align-items:center;justify-content:center}
+.table-card{padding:8px 8px 0 8px}
+.footer-card{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:0.95rem}
 
-#adicionar {
-  background-color: #a5d8ff;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: 0.2s;
-}
+/* Form */
+#form{display:flex;flex-wrap:wrap;gap:10px;align-items:center;width:100%;justify-content:center}
+#form input{padding:10px;border-radius:10px;border:1px solid #ddd;min-width:140px;flex:1}
+.form-actions{display:flex;gap:8px;align-items:center}
 
-#adicionar:hover {
-  background-color: #89c2ff;
-}
+/* Table */
+table{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden}
+th,td{padding:10px;text-align:center;border-bottom:1px solid rgba(0,0,0,0.06)}
+th{background: linear-gradient(90deg, rgba(165,216,255,0.25), rgba(212,175,55,0.06));font-weight:700}
+tbody tr:hover{background:rgba(165,216,255,0.06)}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  border-radius: 12px;
-  overflow: hidden;
-}
+/* action buttons */
+.editar{background: #ffd966;color:#2b2300;border-radius:8px;padding:6px 8px;border:none}
+.excluir{background:var(--red);color:white;border-radius:8px;padding:6px 8px;border:none}
 
-th, td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
+/* status */
+.aprovado{color:var(--green);font-weight:700}
+.reprovado{color:var(--red);font-weight:700}
 
-th {
-  background-color: #f3f3f3;
-}
+/* Modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;backdrop-filter: blur(3px);z-index:80}
+.modal.show{display:flex}
+.modal .modal-card{background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.92));padding:22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);max-width:520px;text-align:center;border:2px solid var(--gold)}
+.modal h2{margin:0 0 8px 0;color:var(--gold-dark)}
+.modal p{color:var(--muted);margin-bottom:12px;font-size:0.98rem}
 
-button.editar {
-  background-color: #ffd966;
-  border: none;
-  border-radius: 8px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
+/* Confetti canvas */
+#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:70}
 
-button.excluir {
-  background-color: #ff6b6b;
-  border: none;
-  border-radius: 8px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
+/* Dark theme overrides */
+body.dark{background:linear-gradient(135deg, rgba(10,18,30,0.85) 0%, rgba(30,35,50,0.9) 100%);color:#eee}
+body.dark .page-frame{background:linear-gradient(180deg, rgba(20,20,20,0.9), rgba(16,16,16,0.85)); border-color: #b58f25}
+body.dark table th{background:#2b2b2b}
+body.dark .card{background:#171717}
+body.dark input{background:#1d1d1d;border:1px solid #333;color:#ddd}
 
-button.editar:hover { background-color: #ffe681; }
-button.excluir:hover { background-color: #ff8787; }
-
-.aprovado { color: green; font-weight: bold; }
-.reprovado { color: red; font-weight: bold; }
-
-/* 🌙 Tema escuro */
-.dark {
-  background-color: #222;
-  color: #eee;
-}
-
-.dark header {
-  background-color: #333;
-}
-
-.dark table {
-  background-color: #333;
-}
-
-.dark th {
-  background-color: #444;
+/* Responsive */
+@media (max-width:780px){
+  header h1{font-size:1.2rem}
+  #form input{min-width:100%}
+  .form-actions{width:100%;justify-content:center}
+  .page-frame{padding:14px}
 }

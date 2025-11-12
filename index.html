@@ -1,43 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sistema de Notas Interativo</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Sistema de Notas Interativo</h1>
-    <button id="theme-toggle">🌙</button>
-  </header>
+  <!-- Welcome modal -->
+  <div id="welcome-modal" class="modal show">
+    <div class="modal-card">
+      <h2>✨ Bem-vinda ao<br><span> Sistema de Notas Interativo</span></h2>
+      <p>Organize as notas, veja ranking, média da turma e muito estilo 💛💙</p>
+      <button id="start-btn" class="btn primary">Começar</button>
+    </div>
+  </div>
 
-  <main>
-    <section id="form-section">
-      <input type="text" id="nome" placeholder="Nome do aluno">
-      <input type="number" id="tri1" placeholder="Tri 1" min="0" max="10">
-      <input type="number" id="tri2" placeholder="Tri 2" min="0" max="10">
-      <input type="number" id="tri3" placeholder="Tri 3" min="0" max="10">
-      <button id="adicionar">➕ Adicionar</button>
-    </section>
+  <!-- Ranking / Stats modal (reused) -->
+  <div id="info-modal" class="modal">
+    <div class="modal-card" id="info-content"></div>
+  </div>
 
-    <section id="tabela-section">
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Tri 1</th>
-            <th>Tri 2</th>
-            <th>Tri 3</th>
-            <th>Média Final</th>
-            <th>Situação</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody id="tabela-body"></tbody>
-      </table>
-    </section>
-  </main>
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="page-frame">
+    <main class="container">
+      <header>
+        <h1>Sistema de Notas Interativo</h1>
+        <div class="controls">
+          <button id="theme-toggle" title="Alternar tema">🌙</button>
+          <button id="btn-ranking" class="btn lilac">🏆 Ranking</button>
+          <button id="btn-media" class="btn green">📊 Média da Turma</button>
+        </div>
+      </header>
+
+      <section class="card form-card">
+        <form id="form">
+          <input id="nome" placeholder="Nome do aluno" type="text" required />
+          <input id="tri1" placeholder="Tri 1" type="number" min="0" max="10" step="0.1" required />
+          <input id="tri2" placeholder="Tri 2" type="number" min="0" max="10" step="0.1" required />
+          <input id="tri3" placeholder="Tri 3" type="number" min="0" max="10" step="0.1" required />
+          <div class="form-actions">
+            <button id="adicionar" class="btn baby-blue" type="submit">➕ Adicionar</button>
+            <button id="limpar-tabela" class="btn red" type="button">🧹 Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Tri 1</th>
+              <th>Tri 2</th>
+              <th>Tri 3</th>
+              <th>Média Final</th>
+              <th>Situação</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-body"></tbody>
+        </table>
+      </section>
+
+      <footer class="card footer-card">
+        <div id="summary">
+          <strong>Média da Turma:</strong> <span id="media-geral">—</span>
+          &nbsp; • &nbsp;
+          <strong>Aprovados:</strong> <span id="aprovados-count">0</span>
+          &nbsp; • &nbsp;
+          <strong>Reprovados:</strong> <span id="reprovados-count">0</span>
+        </div>
+        <div class="credits">Desenvolvido por Thais • Projeto escolar</div>
+      </footer>
+    </main>
+  </div>
+
+  <audio id="sound-ok" src=""></audio>
+  <audio id="sound-err" src=""></audio>
 
   <script src="script.js"></script>
 </body>
