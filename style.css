@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
+}
+
+body {
+  background: #f0f4f8;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #0077ff;
+  text-align: center;
+}
+
+#btnTema {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#btnTema:hover {
+  background: #005ecc;
+}
+
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 200px;
+}
+
+button {
+  background: #0077ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #005ecc;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+thead {
+  background: #0077ff;
+  color: white;
+}
+
+.aprovado {
+  background-color: #b6f7c1;
+}
+
+.reprovado {
+  background-color: #f7b6b6;
+}
+
+/* 🌙 Tema escuro */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+body.dark h1 {
+  color: #66aaff;
+}
+
+body.dark #btnTema {
+  background: #444;
+}
+
+body.dark table {
+  background: #1f1f1f;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+body.dark thead {
+  background: #333;
+}
+
+body.dark input, body.dark button {
+  background: #2c2c2c;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark .aprovado {
+  background-color: #194d19;
+}
+
+body.dark .reprovado {
+  background-color: #4d1919;
+}
+
+@media (max-width: 600px) {
+  input {
+    width: 100%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}

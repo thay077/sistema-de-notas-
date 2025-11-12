@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Notas Interativo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sistema de Notas Interativo 📘</h1>
+    <button id="btnTema">🌙 Modo Escuro</button>
+  </header>
+
+  <section class="form-section">
+    <input type="text" id="nome" placeholder="Nome do aluno">
+    <input type="number" id="nota1" placeholder="Nota 1" min="0" max="10" step="0.1">
+    <input type="number" id="nota2" placeholder="Nota 2" min="0" max="10" step="0.1">
+    <button id="btnAdicionar">Adicionar Aluno</button>
+  </section>
+
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Nota 1</th>
+        <th>Nota 2</th>
+        <th>Média</th>
+        <th>Situação</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
